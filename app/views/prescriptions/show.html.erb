@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Medicine name:</strong>
+  <%= @prescription.medicine_name %>
+</p>
+
+<p>
+  <strong>Instructions:</strong>
+  <%= @prescription.instructions %>
+</p>
+
+<p>
+  <strong>Prescription date:</strong>
+  <%= @prescription.prescription_date %>
+</p>
+
+<p>
+  <strong>Valid until date:</strong>
+  <%= @prescription.valid_until_date %>
+</p>
+
+<%= link_to 'Edit', edit_prescription_path(@prescription) %> |
+<%= link_to 'Back', prescriptions_path %>

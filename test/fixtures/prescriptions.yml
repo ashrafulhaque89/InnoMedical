@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  medicine_name: MyString
+  instructions: MyText
+  prescription_date: 2019-06-05
+  valid_until_date: 2019-06-05
+
+two:
+  medicine_name: MyString
+  instructions: MyText
+  prescription_date: 2019-06-05
+  valid_until_date: 2019-06-05

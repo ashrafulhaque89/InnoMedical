@@ -1,0 +1,14 @@
+<h1>Home#index</h1>
+
+<% if user_signed_in? %>
+<% if current_user.patient_profile %>
+<p>Welcome, patient</p>
+<%= link_to 'Patient profile', 'patient_profiles' %>
+<%= link_to 'Medical history', 'patient_histories' %>
+<%= link_to 'Prescriptions', 'prescriptions' %>
+<%elsif current_user.doctor %>
+<p>Welcome, doctor</p>
+<%= link_to 'Prescriptions', 'prescriptions' %>
+<% end %>
+<% end %>
+

@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+
+<p>
+
+  <strong>Gender:</strong>
+  <%= @patient_profile.gender %>
+</p>
+
+<p>
+  <strong>Ethnicity:</strong>
+  <%= @patient_profile.ethnicity %>
+</p>
+
+
+<%= link_to 'Edit', edit_patient_profile_path(@patient_profile) %> |
+<%= link_to 'Back', patient_profiles_path %>
