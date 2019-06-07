@@ -65,7 +65,7 @@ class User::RegistrationsController < Devise::RegistrationsController
      '/doctors/new'
     
     elsif current_user.patient?
-     'home/index'
+     '/patient_profiles/new'
     end
    end
 end

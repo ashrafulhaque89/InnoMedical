@@ -9,6 +9,12 @@
 <%elsif current_user.doctor %>
 <p>Welcome, doctor</p>
 <%= link_to 'Prescriptions', 'prescriptions' %>
+<%elsif current_user.admin? %>
+<p>Welcome, admin</p>
+<%= link_to 'Prescriptions', 'prescriptions' %>
+<%= link_to 'Patient profile', 'patient_profiles' %>
+<%= link_to 'Medical history', 'patient_histories' %>
+<%= link_to 'Doctors', '/doctors' %>
 <% end %>
 <% end %>
 

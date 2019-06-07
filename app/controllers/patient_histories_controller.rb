@@ -4,9 +4,14 @@ class PatientHistoriesController < ApplicationController
   # GET /patient_histories
   # GET /patient_histories.json
   def index
-    #@patient_histories = PatientHistory.where(:patient_profile_id => current_user.patient_profile.patient_profile_id)
-    @patient_histories = PatientHistory.where(:patient_profile =>current_user.patient_profile)
+    #@patient_histories = PatientHistory.where(:patient_profile_id => current_user.patient_profile.patient_profile_id  )||PatientHistory.where(current_user.role => "admin")
+   # @patient_histories = PatientHistory.where(:patient_profile =>current_user.patient_profile)||PatientHistory.where(current_user.role => "admin")
     #@patient_histories = PatientProfile.patient_profiles.where(:user => current_user)
+    if current_user.admin?
+      @patient_histories=PatientHistory.all
+    else 
+       @patient_histories = PatientHistory.where(:patient_profile =>current_user.patient_profile)
+    end
   end
 
   # GET /patient_histories/1

@@ -10,7 +10,7 @@ class User < ApplicationRecord
          has_many :prescriptions, :through => :doctor
 
 
-         enum role: [ :doctor , :patient ]
+         enum role: [ :doctor , :patient, :admin ]
          after_initialize :set_default_role, :if => :new_record?
          
          def full_name

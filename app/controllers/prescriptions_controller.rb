@@ -9,6 +9,8 @@ class PrescriptionsController < ApplicationController
     @prescriptions = Prescription.where(:doctor =>current_user.doctor)
     elsif current_user.patient?
     @prescriptions=Prescription.where(:patient_profile_id =>current_user.patient_profile.id)
+    elsif current_user.admin?
+    @prescriptions=Prescription.all
     end
   end
 
