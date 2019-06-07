@@ -4,6 +4,11 @@ class PatientProfilesController < ApplicationController
   # GET /patient_profiles
   # GET /patient_profiles.json
   def index
+    @patient_profiles = if params[:term]
+    User.PatientProfile.where('firstname LIKE ?', "%#{params[:term]}%")
+    else
+    PatientProfile.all
+    end
     if current_user.patient?
     @patient_profiles = PatientProfile.where(:user => current_user)
     elsif current_user.admin?

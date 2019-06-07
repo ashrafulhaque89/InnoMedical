@@ -1,12 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-
 <p>
-
+  <strong>First name:</strong>
+  <%= @patient_profile.user.firstname %>
+</p>
+<p>
+  <strong>Last name:</strong>
+  <%= @patient_profile.user.lastname %>
+</p>
+<p>
+  <strong>Email address:</strong>
+  <%= @patient_profile.user.email %>
+</p>
+<p>
+  <strong>Phone number:</strong>
+  <%= @patient_profile.user.phonenumber %>
+</p>
+<p>
   <strong>Gender:</strong>
   <%= @patient_profile.gender %>
 </p>
-
 <p>
   <strong>Ethnicity:</strong>
   <%= @patient_profile.ethnicity %>

@@ -1,31 +1,36 @@
 <p id="notice"><%= notice %></p>
-
+<%if current_user.patient? %>
+<h1>Patient's Profile</h1>
+<% elsif current_user.admin? %>
 <h1>Patient Profiles</h1>
-
+<%end %>
 <table>
   <thead>
     <tr>
-      <th>Gender</th>
-      <th>Ethnicity</th>
+      <th>First Name</th>
+      <th>Last Name</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
+
     <% @patient_profiles.each do |patient_profile| %>
       <tr>
-        <td><%= patient_profile.gender %></td>
-        <td><%= patient_profile.ethnicity %></td>
+        <td><%= patient_profile.user.firstname %></td>
+        <td><%= patient_profile.user.lastname %></td>
         <td><%= link_to 'Show', patient_profile %></td>
         <td><%= link_to 'Edit', edit_patient_profile_path(patient_profile) %></td>
+        <% if current_user.admin? %>
         <td><%= link_to 'Destroy', patient_profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end%> 
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-<% if !current_user.patient_profile %>
+<% if !current_user.patient_profile || current_user.admin?%>
 <%= link_to 'New Patient Profile', new_patient_profile_path %>
 <% end %>
 <%= link_to 'Medical history', 'patient_histories' %>

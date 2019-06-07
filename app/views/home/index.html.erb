@@ -8,6 +8,7 @@
 <%= link_to 'Prescriptions', 'prescriptions' %>
 <%elsif current_user.doctor %>
 <p>Welcome, doctor</p>
+<%= link_to 'Doctor profile', '/doctors' %>
 <%= link_to 'Prescriptions', 'prescriptions' %>
 <%elsif current_user.admin? %>
 <p>Welcome, admin</p>

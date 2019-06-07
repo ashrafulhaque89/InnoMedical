@@ -1,18 +1,20 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Firstname:</strong>
-  <%= @doctor.firstname %>
+  <strong>First name:</strong>
+  <%= @doctor.user.firstname %>
 </p>
-
 <p>
-  <strong>Lastname:</strong>
-  <%= @doctor.lastname %>
+  <strong>Last name:</strong>
+  <%= @doctor.user.lastname %>
 </p>
-
 <p>
-  <strong>Phone:</strong>
-  <%= @doctor.phone %>
+  <strong>Email address:</strong>
+  <%= @doctor.user.email %>
+</p>
+<p>
+  <strong>Phone number:</strong>
+  <%= @doctor.user.phonenumber %>
 </p>
 
 <p>
