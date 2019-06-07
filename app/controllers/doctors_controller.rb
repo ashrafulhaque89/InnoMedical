@@ -4,7 +4,7 @@ class DoctorsController < ApplicationController
   # GET /doctors
   # GET /doctors.json
   def index
-    @doctors = Doctor.all
+    @doctors = Doctor.where(:user => current_user)
   end
 
   # GET /doctors/1

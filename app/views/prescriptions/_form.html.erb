@@ -24,7 +24,7 @@
     <div class="field">
       
       <%= form.label :patient_profile_id %><br />
-     <%=form.select :patient_profile_id, PatientProfile.all.collect { |p| [ p.id]} %>
+     <%=form.select :patient_profile_id, PatientProfile.select("id") %>
   </div>
 
   <div class="field">
