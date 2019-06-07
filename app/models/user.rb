@@ -18,7 +18,7 @@ class User < ApplicationRecord
          end
          
          def set_default_role
-          self.role ||= :doctor
+          self.role ||= :patient
          end
          
          def is?(requested_role)

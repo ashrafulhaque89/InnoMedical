@@ -10,12 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_05_121350) do
+ActiveRecord::Schema.define(version: 2019_06_07_130500) do
 
   create_table "doctors", force: :cascade do |t|
-    t.string "firstname"
-    t.string "lastname"
-    t.string "phone"
     t.string "field"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -34,11 +31,11 @@ ActiveRecord::Schema.define(version: 2019_06_05_121350) do
   end
 
   create_table "patient_profiles", force: :cascade do |t|
-    t.string "gender"
     t.string "ethnicity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.integer "gender"
     t.index ["user_id"], name: "index_patient_profiles_on_user_id"
   end
 
