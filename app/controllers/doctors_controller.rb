@@ -6,7 +6,7 @@ class DoctorsController < ApplicationController
   def index
     if current_user.doctor?
     @doctors = Doctor.where(:user => current_user)
-    elsif current_user.admin?
+    else
     @doctors=Doctor.all
     end
   end

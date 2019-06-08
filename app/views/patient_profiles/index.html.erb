@@ -20,8 +20,9 @@
         <td><%= patient_profile.user.firstname %></td>
         <td><%= patient_profile.user.lastname %></td>
         <td><%= link_to 'Show', patient_profile %></td>
+        <% if !current_user.doctor? %>
         <td><%= link_to 'Edit', edit_patient_profile_path(patient_profile) %></td>
-        <% if current_user.admin? %>
+        <% elsif current_user.admin? %>
         <td><%= link_to 'Destroy', patient_profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <%end%> 
       </tr>
@@ -30,8 +31,6 @@
 </table>
 
 <br>
-<% if !current_user.patient_profile || current_user.admin?%>
-<%= link_to 'New Patient Profile', new_patient_profile_path %>
-<% end %>
+
 <%= link_to 'Medical history', 'patient_histories' %>
 <%= link_to 'Prescriptions', 'prescriptions' %>
