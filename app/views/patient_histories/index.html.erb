@@ -7,6 +7,8 @@
     <tr>
       <th>Date</th>
       <th>Medical history</th>
+      <th>First name</th>
+      <th>Last name</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,9 +18,12 @@
       <tr>
         <td><%= patient_history.created_at.strftime("%m/%d/%Y %H:%M") %></td>
         <td><%= patient_history.medical_history %></td>
+        <td><%= patient_history.patient_profile.user.firstname %></td>
+        <td><%= patient_history.patient_profile.user.lastname %></td>
         <td><%= link_to 'Show', patient_history %></td>
         <td><%= link_to 'Edit', edit_patient_history_path(patient_history) %></td>
         <td><%= link_to 'Destroy', patient_history, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show Patient\'s profile', patient_profile_path(patient_history.patient_profile_id) %></td>
       </tr>
     <% end %>
   </tbody>
