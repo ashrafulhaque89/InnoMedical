@@ -10,15 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_07_130500) do
+ActiveRecord::Schema.define(version: 2019_06_07_130416) do
 
   create_table "doctors", force: :cascade do |t|
     t.string "field"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
-    t.integer "users_id"
-    t.index ["users_id"], name: "index_doctors_on_users_id"
+    t.index ["user_id"], name: "index_doctors_on_user_id"
   end
 
   create_table "patient_histories", force: :cascade do |t|
