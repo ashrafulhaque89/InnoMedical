@@ -1,6 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Patient's name:</strong>
+  <%= @prescription.patient_profile.user.full_name %>
+</p>
+
+<p>
+  <strong>Doctor's name:</strong>
+  <%= @prescription.doctor.user.full_name %>
+</p>
+
+<p>
   <strong>Medicine name:</strong>
   <%= @prescription.medicine_name %>
 </p>

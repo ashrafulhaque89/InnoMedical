@@ -1,4 +1,5 @@
 <p id="notice"><%= notice %></p>
+
 <%if current_user.patient? %>
 <h1>Patient's Profile</h1>
 <% elsif current_user.admin? %>
@@ -12,12 +13,17 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-
-  <tbody>
+  
+ <%if !current_user.patient? %>
+      <meta http-equiv="refresh" />
        <%= form_tag(patient_profiles_path, method: :get) do %>
         <%= text_field_tag :term, params[:term] %>
         <%= submit_tag 'Search by name', name: nil %>
         <% end %>
+    <%end%>
+
+  <tbody>
+   
     <% @patient_profiles.each do |patient_profile| %>
       <tr>
         <td><%= patient_profile.user.firstname %></td>
@@ -27,6 +33,8 @@
         <td><%= link_to 'Edit', edit_patient_profile_path(patient_profile) %></td>
         <% elsif current_user.admin? %>
         <td><%= link_to 'Destroy', patient_profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% elsif current_user.doctor? %>
+        <td><%= link_to 'Select', new_prescription_path(:patient_profile_id => patient_profile.id)%></td>
         <%end%> 
       </tr>
     <% end %>

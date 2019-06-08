@@ -6,10 +6,10 @@
 <table>
   <thead>
     <tr>
+      <th>Patient's name</th>
+      <th>Doctor's name</th>
       <th>Medicine name</th>
-      <th>Instructions</th>
       <th>Prescription date</th>
-      <th>Valid until date</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,10 +18,10 @@
     
     <% @prescriptions.each do |prescription| %>
       <tr>
+        <td><%= prescription.patient_profile.user.full_name %></td>
+        <td><%= prescription.doctor.user.full_name %></td>
         <td><%= prescription.medicine_name %></td>
-        <td><%= prescription.instructions %></td>
         <td><%= prescription.prescription_date %></td>
-        <td><%= prescription.valid_until_date %></td>
           <% if current_user.doctor? %>
           <td><%= link_to 'Patient info', patient_profile_path(prescription.doctor_id) %></td>
            <td><%= link_to 'Show', prescription %></td>

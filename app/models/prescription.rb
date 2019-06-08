@@ -4,4 +4,8 @@ class Prescription < ApplicationRecord
       def patients
             User.includes(:patient_profile)
       end
+      
+
+  
+
 end
