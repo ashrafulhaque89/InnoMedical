@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
  
+<p>
+  <strong>Medical history:</strong>
+  <%= @patient_history.created_at.strftime("%m/%d/%Y %H:%M") %>
+</p>
  
 <p>
   <strong>Medical history:</strong>
