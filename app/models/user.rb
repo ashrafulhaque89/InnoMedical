@@ -24,4 +24,12 @@ class User < ApplicationRecord
          def is?(requested_role)
           self.role=requested_role.to_s
          end
+         
+         def self.search(term)
+          if term
+         where('firstname LIKE ? or lastname LIKE ?', "%#{term}%","%#{term}%")
+          else
+         all
+          end
+         end
 end
