@@ -7,7 +7,7 @@ class DoctorsController < ApplicationController
     if current_user.doctor?
     @doctors = Doctor.where(:user => current_user)
     else
-    @doctors=Doctor.all
+    @doctors = Doctor.joins(:user).search(params[:term])
     end
   end
 
@@ -74,6 +74,6 @@ class DoctorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def doctor_params
-      params.require(:doctor).permit( :field, :user_id)
+      params.require(:doctor).permit( :field, :user_id, :term)
     end
 end

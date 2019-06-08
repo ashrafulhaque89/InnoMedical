@@ -7,4 +7,12 @@ class PatientProfile < ApplicationRecord
     def is?(requested_gender)
           self.gender=requested_gender.to_s
     end
+    
+    def self.search(term)
+        if term
+         where('firstname LIKE ? or lastname LIKE ?', "%#{term}%","%#{term}%")
+        else
+         all
+        end
+    end
 end

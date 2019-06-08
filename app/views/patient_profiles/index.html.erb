@@ -14,7 +14,10 @@
   </thead>
 
   <tbody>
-
+       <%= form_tag(patient_profiles_path, method: :get) do %>
+        <%= text_field_tag :term, params[:term] %>
+        <%= submit_tag 'Search by name', name: nil %>
+        <% end %>
     <% @patient_profiles.each do |patient_profile| %>
       <tr>
         <td><%= patient_profile.user.firstname %></td>

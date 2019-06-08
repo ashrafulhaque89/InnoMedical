@@ -4,15 +4,10 @@ class PatientProfilesController < ApplicationController
   # GET /patient_profiles
   # GET /patient_profiles.json
   def index
-    @patient_profiles = if params[:term]
-    User.PatientProfile.where('firstname LIKE ?', "%#{params[:term]}%")
-    else
-    PatientProfile.all
-    end
     if current_user.patient?
-    @patient_profiles = PatientProfile.where(:user => current_user)
-    elsif current_user.admin?
-    @patient_profiles=PatientProfile.all
+    @patient_profiles =PatientProfile.where(:user => current_user)
+    else
+    @patient_profiles = PatientProfile.joins(:user).search(params[:term])
     end
   end
 
@@ -79,6 +74,6 @@ class PatientProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def patient_profile_params
-      params.require(:patient_profile).permit(:gender, :ethnicity, :user_id)
+      params.require(:patient_profile).permit(:gender, :ethnicity, :user_id, :term)
     end
 end

@@ -9,5 +9,12 @@ class Doctor < ApplicationRecord
         @user = User.find(params[:user_id])
     end
 
+    def self.search(term)
+        if term
+         where('firstname LIKE ? or lastname LIKE ?', "%#{term}%","%#{term}%")
+        else
+         all
+        end
+    end
     
 end
