@@ -1,5 +1,5 @@
 <%= form_with(model: patient_profile, local: true) do |form| %>
-<%= fields_for :users do |u| %>
+
   <% if patient_profile.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(patient_profile.errors.count, "error") %> prohibited this patient_profile from being saved:</h2>
@@ -11,13 +11,6 @@
       </ul>
     </div>
   <% end %>
-  
-  <div class="user">
-    <div class="field">
-    <%= u.label  :firstname%>
-    <%= u.text_field :firstname %>
-    </div>
-  </div>
 
   <div class="field">
     <%= form.label :ethnicity %>
@@ -28,7 +21,6 @@
       <%= form.label :gender %><br />
      <%=form.select :gender, [['male', :male], ['female', :female]] %>
   </div>
-<%end%>
   <div class="actions">
     <%= form.submit %>
   </div>
