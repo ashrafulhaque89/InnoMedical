@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyString
+  cost: 1
+  startdate: 2019-06-09 12:57:41
+  finishdate: 2019-06-09 12:57:41
+
+two:
+  description: MyString
+  cost: 1
+  startdate: 2019-06-09 12:57:41
+  finishdate: 2019-06-09 12:57:41

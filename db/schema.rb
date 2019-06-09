@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_07_130416) do
+ActiveRecord::Schema.define(version: 2019_06_09_135258) do
+
+  create_table "appointments", force: :cascade do |t|
+    t.string "description"
+    t.integer "cost"
+    t.datetime "startdate"
+    t.datetime "finishdate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "doctor_id"
+    t.integer "patient_profile_id"
+    t.index ["doctor_id"], name: "index_appointments_on_doctor_id"
+    t.index ["patient_profile_id"], name: "index_appointments_on_patient_profile_id"
+  end
 
   create_table "doctors", force: :cascade do |t|
     t.string "field"
