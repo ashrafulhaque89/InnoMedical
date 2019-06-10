@@ -5,6 +5,13 @@
 <% elsif current_user.admin? %>
 <h1>Patient Profiles</h1>
 <%end %>
+ <%if !current_user.patient? %>
+      <meta http-equiv="refresh" />
+       <%= form_tag(patient_profiles_path, method: :get) do %>
+        <%= text_field_tag :term, params[:term] %>
+        <%= submit_tag 'Search by name', name: nil %>
+        <% end %>
+    <%end%>
 <table>
   <thead>
     <tr>
@@ -14,13 +21,7 @@
     </tr>
   </thead>
   
- <%if !current_user.patient? %>
-      <meta http-equiv="refresh" />
-       <%= form_tag(patient_profiles_path, method: :get) do %>
-        <%= text_field_tag :term, params[:term] %>
-        <%= submit_tag 'Search by name', name: nil %>
-        <% end %>
-    <%end%>
+
 
   <tbody>
    
