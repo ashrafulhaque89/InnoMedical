@@ -22,6 +22,8 @@
         <td><%= prescription.doctor.user.full_name %></td>
         <td><%= prescription.medicine_name %></td>
         <td><%= prescription.prescription_date %></td>
+        
+        
           <% if current_user.doctor? %>
           <td><%= link_to 'Patient info', patient_profile_path(prescription.doctor_id) %></td>
            <td><%= link_to 'Show', prescription %></td>

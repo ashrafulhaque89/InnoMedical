@@ -1,3 +1,4 @@
+<% if user_signed_in? %>
 <p id="notice"><%= notice %></p>
 
 <h1>Appointments</h1>
@@ -20,14 +21,37 @@
         <td><%= appointment.cost %></td>
         <td><%= appointment.startdate %></td>
         <td><%= appointment.finishdate %></td>
-        <td><%= link_to 'Show', appointment %></td>
-        <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
-        <td><%= link_to 'Destroy', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
+        
+        
+         <% if current_user.patient? %>
+           
+            <td><%= link_to 'Doctor info', doctors_path(appointment.doctor_id) %></td>
+            <td><%= link_to 'Show', appointment %></td>
+          <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
+            <td><%= link_to 'Destroy', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    
+            <% elsif current_user.doctor? %>
+            <td><%= link_to 'Patient info', patient_profile_path(appointment.patient_profile_id) %></td>
+            <td><%= link_to 'Show', appointment %></td>
+         <% end %>
+        
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
+<% if current_user.patient? %>
 <%= link_to 'New Appointment', new_appointment_path %>
+
+
+
+<%end%>
+<%end%>
+
+        
+        
+        
+    
+

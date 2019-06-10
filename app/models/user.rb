@@ -8,6 +8,8 @@ class User < ApplicationRecord
          has_many :patient_histories, :through => :patient_profiles
          has_many :prescriptions, :through => :patient_profiles
          has_many :prescriptions, :through => :doctor
+         has_many :appointments, :through => :doctor
+         has_many :appointments, :through => :patient_profiles
 
 
          enum role: [ :doctor , :patient, :admin ]

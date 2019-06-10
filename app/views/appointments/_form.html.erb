@@ -28,7 +28,13 @@
 
   <div class="field">
     <%= form.label :finishdate %>
-    <%= form.datetime_select :finishdate %>
+    <%= form.datetime_select :finishdate, start_year: Date.today.year,discard_day:true %>
+  </div>
+
+  
+  <div class="field">
+    <%= form.label :doctor_id %>
+    <%= form.select(:doctor_id, Doctor.all.collect { |p| [p.doctor_and_field, p.id ] }) %>
   </div>
 
   <div class="actions">

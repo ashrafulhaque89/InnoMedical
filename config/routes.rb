@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :schedules
   resources :appointments
   resources :prescriptions
   resources :patient_profiles
@@ -13,5 +14,7 @@ Rails.application.routes.draw do
   get "home/index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get 'users' => 'users#index'
+  
+ # get 'Create Appointment' => 'schedule'
   
 end
