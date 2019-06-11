@@ -26,13 +26,13 @@
         
          <% if current_user.patient? %>
            
-            <td><%= link_to 'Doctor info', doctors_path(appointment.doctor_id) %></td>
+            <td><%= link_to 'Doctor info', doctors_path(appointment.patient_profile_id) %></td>
             <td><%= link_to 'Show', appointment %></td>
           <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
             <td><%= link_to 'Destroy', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     
             <% elsif current_user.doctor? %>
-            <td><%= link_to 'Patient info', patient_profile_path(appointment.patient_profile_id) %></td>
+            <td><%= link_to 'Patient info', patient_profiles_path(appointment.patient_profile_id) %></td>
             <td><%= link_to 'Show', appointment %></td>
          <% end %>
         
@@ -46,6 +46,11 @@
 <%= link_to 'New Appointment', new_appointment_path %>
 
 
+
+<%end%>
+
+<% if current_user.doctor? %>
+<%= link_to 'New Schedule', new_schedule_path %>
 
 <%end%>
 <%end%>

@@ -18,26 +18,26 @@
 
   <div class="field">
     <%= form.label :cost %>
-    <%= form.number_field :cost %>
+    <%= form.number_field :cost=='80' %>
   </div>
 
-  <div class="field">
-    <%= form.label :startdate %>
-    <%= form.datetime_select :startdate %>
-  </div>
-
-  <div class="field">
-    <%= form.label :finishdate %>
-    <%= form.datetime_select :finishdate, start_year: Date.today.year,discard_day:true %>
-  </div>
 
   
   <div class="field">
     <%= form.label :doctor_id %>
     <%= form.select(:doctor_id, Doctor.all.collect { |p| [p.doctor_and_field, p.id ] }) %>
   </div>
+  
+    
+  <div class="field">
+    <%= form.label :schedule_id %>
+    <%= form.select(:doctor_id, Schedule.all.collect) %>
+   
+  </div>
+
 
   <div class="actions">
     <%= form.submit %>
   </div>
+  
 <% end %>

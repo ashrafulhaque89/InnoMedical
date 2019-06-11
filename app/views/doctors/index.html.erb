@@ -42,6 +42,12 @@
 <br>
 
 <%= link_to 'Prescriptions', 'prescriptions' %>
-<%= link_to 'Medical history', 'patient_histories' %>
-<%= link_to 'Appointment', 'appointments' %>
+<%= link_to 'Medical History', 'patient_histories' %>
+<%= link_to 'View Appointments', 'appointments' %>
+
+<% if current_user.doctor? %>
+<%= link_to 'New Schedule', new_schedule_path %>
+
+<%end%>
+
 

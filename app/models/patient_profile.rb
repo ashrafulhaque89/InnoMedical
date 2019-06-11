@@ -2,6 +2,7 @@ class PatientProfile < ApplicationRecord
     belongs_to :user, :foreign_key => 'user_id' 
     has_many :patient_histories
     has_many :prescriptions
+     has_many :appointments
     enum gender: [ :male , :female ]
     
     def is?(requested_gender)

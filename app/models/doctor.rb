@@ -1,6 +1,7 @@
 class Doctor < ApplicationRecord
     belongs_to :user
     has_many :prescriptions
+    has_many :appointments
     
     def create
         @doctor = current_user.build_doctor(params[:id]) # why params[:id]?
