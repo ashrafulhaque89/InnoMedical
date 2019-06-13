@@ -22,8 +22,7 @@
         <td><%= appointment.startdate %></td>
         <td><%= appointment.finishdate %></td>
         
-        
-        
+       
          <% if current_user.patient? %>
            
             <td><%= link_to 'Doctor info', doctors_path(appointment.patient_profile_id) %></td>
