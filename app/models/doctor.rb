@@ -21,7 +21,7 @@ class Doctor < ApplicationRecord
     end
     
     def doctor_and_field
-        [user.firstname, user.lastname, field].select(&:present?).join('').titleize
+        [user.firstname, user.lastname, field].select(&:present?).join(' ').titleize
     end
     
 end

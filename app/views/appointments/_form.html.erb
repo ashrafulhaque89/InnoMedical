@@ -23,22 +23,24 @@
 
 <div class="field">
     <%= form.label :startdate%>
-    <%= form.datetime_select :startdate, start_year: Date.today.year,discard_day:true%>
+    <%= form.datetime_select :startdate, start_year: Date.today.year%>
   </div>
 
 <div class="field">
     <%= form.label :finishdate %>
-    <%= form.datetime_select :finishdate, start_year: Date.today.year,discard_day:true %>
+    <%= form.datetime_select :finishdate, start_year: Date.today.year %>
   </div>
   
   <div class="field">
     <%= form.label :doctor_id %>
+    <%= form.collection_select :doctor_id, Doctor.order(:doctor_and_field), :id, :doctor_and_field, include_blank: true %>
     <%= form.select(:doctor_id, Doctor.all.collect { |p| [p.doctor_and_field, p.id ] }) %>
   </div>
   
     
   <div class="field">
     <%= form.label :schedule_id %>
+    <%= form.grouped_collection_select :schedule_id, Doctor.order(:doctor_and_field), :schedules, :doctor_and_field, :id, :start_and_end_date, include_blank: true %>
     <%= form.collection_select :schedule_id, Schedule.all, :id, :start %>
    
   </div>

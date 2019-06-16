@@ -4,7 +4,11 @@ class SchedulesController < ApplicationController
   # GET /schedules
   # GET /schedules.json
   def index
-    @schedules = Schedule.all
+    if !current_user.doctor?
+      @schedules=Schedule.all
+    else 
+       @schedules = Schedule.where(:doctor =>current_user.doctor)
+    end
   end
 
   # GET /schedules/1
@@ -24,7 +28,7 @@ class SchedulesController < ApplicationController
   # POST /schedules
   # POST /schedules.json
   def create
-    @schedule = Schedule.new(schedule_params)
+    @schedule = Schedule.new(schedule_params.merge(:doctor =>current_user.doctor))
 
     respond_to do |format|
       if @schedule.save
@@ -37,20 +41,29 @@ class SchedulesController < ApplicationController
     end
   end
 
+  
+
+  
   # PATCH/PUT /schedules/1
   # PATCH/PUT /schedules/1.json
   def update
     respond_to do |format|
-      if @schedule.update(schedule_params)
+      if @schedule.update(schedule_params.merge(:booked =>true))
         format.html { redirect_to @schedule, notice: 'Schedule was successfully updated.' }
         format.json { render :show, status: :ok, location: @schedule }
       else
         format.html { render :edit }
         format.json { render json: @schedule.errors, status: :unprocessable_entity }
       end
+        
     end
   end
 
+  def book
+    @schedule = Schedule.find_by_id(params[:id])
+   @schedule=Schedule.update(:booked)
+   
+  end
   # DELETE /schedules/1
   # DELETE /schedules/1.json
   def destroy
@@ -69,6 +82,6 @@ class SchedulesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def schedule_params
-      params.require(:schedule).permit(:title, :start, :end)
+      params.require(:schedule).permit(:title, :start, :end, :booked)
     end
 end

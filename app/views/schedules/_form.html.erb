@@ -18,12 +18,12 @@
 
   <div class="field">
     <%= form.label :start %>
-    <%= form.datetime_select :start, datetime_select %>
+    <%= form.datetime_select :start, start_year: Date.today.year %>
   </div>
 
   <div class="field">
     <%= form.label :end %>
-    <%= form.datetime_select :end, datetime_select %>
+    <%= form.datetime_select :end , start_year: Date.today.year%>
   </div>
   
     <div class="field">

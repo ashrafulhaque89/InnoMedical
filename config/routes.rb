@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
   resources :doctor_apps
-  resources :schedules
+  resources :schedules do
+    put :book
+  end
   resources :appointments
   resources :prescriptions
   resources :patient_profiles

@@ -19,12 +19,14 @@
   <tbody>
     <% @schedules.each do |schedule| %>
       <tr>
+        <% if schedule.booked==false %>
         <td><%= schedule.title %></td>
         <td><%= schedule.start %></td>
         <td><%= schedule.end %></td>
         <td><%= schedule.cost %></td>
-        
-      
+        <% if current_user.patient? %>
+        <td><%=schedule.doctor.user.full_name %></td>
+        <% end %>
 
         <% if current_user.doctor? %>
            <td><%= link_to 'Show', schedule %></td>
@@ -32,9 +34,9 @@
             <td><%= link_to 'Destroy', schedule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     
             <% elsif current_user.patient? %>
-            <td><%= link_to 'Show', schedule %></td>
+            <td><%= link_to("Book", schedule_book_url(schedule), :method => :put) %></td>
          <% end %>
-        
+        <%end %>
       </tr>
     <% end %>
   </tbody>

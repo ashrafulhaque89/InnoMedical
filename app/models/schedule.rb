@@ -2,8 +2,7 @@ class Schedule < ApplicationRecord
     belongs_to :doctor
     
     def create
-        @schedule = current_doctor.build_schedule(params[:id]) # why params[:id]?
-        #it should just be
+        @schedule = current_doctor.build_schedule(params[:id]) 
         @schedule = current_doctor.build_schedule()
         @doctor = Doctor.find(params[:doctor_id])
     end
@@ -14,6 +13,10 @@ class Schedule < ApplicationRecord
         else
          all
         end
+    end
+    
+    def start_and_end_date
+        [start].select(&:present?).join(' ').titleize
     end
     
    
