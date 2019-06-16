@@ -61,7 +61,7 @@ class SchedulesController < ApplicationController
 
   def book
     @schedule = Schedule.find_by_id(params[:id])
-   @schedule=Schedule.update(:booked)
+   @schedule=Schedule.update(:booked =>true)
    
   end
   # DELETE /schedules/1
@@ -82,6 +82,6 @@ class SchedulesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def schedule_params
-      params.require(:schedule).permit(:title, :start, :end, :booked)
+      params.require(:schedule).permit(:title, :start, :end, :booked, :cost)
     end
 end
