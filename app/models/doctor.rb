@@ -1,7 +1,9 @@
 class Doctor < ApplicationRecord
     belongs_to :user
     has_many :prescriptions
-    has_many :appointments
+   
+    has_many :appointments, :through => :schedules 
+    has_many :schedules, :dependent => :destroy
     
     def create
         @doctor = current_user.build_doctor(params[:id]) # why params[:id]?
