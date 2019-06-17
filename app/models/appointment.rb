@@ -1,6 +1,6 @@
 class Appointment < ApplicationRecord
     
-has_many :doctors, :through => :appointments
+has_many :doctors, :through => :schedule
 
       
 end

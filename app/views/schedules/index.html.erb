@@ -35,7 +35,9 @@
     
             <% elsif current_user.patient? %>
             <td><%= link_to("Book", schedule_book_url(schedule), :method => :put) %></td>
+             
          <% end %>
+         
         <%end %>
       </tr>
     <% end %>
@@ -45,6 +47,7 @@
 <br>
 <% if current_user.doctor? %>
 <%= link_to 'New Schedule', new_schedule_path %>
+<%= link_to 'Back', doctors_path %>
 
 
 <%end%>
