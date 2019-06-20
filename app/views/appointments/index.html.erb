@@ -21,20 +21,21 @@
         <td><%= appointment.cost %></td>
         <td><%= appointment.startdate %></td>
         <td><%= appointment.finishdate %></td>
-        
-       
+
+
          <% if current_user.patient? %>
-           
+
             <td><%= link_to 'Doctor info', doctors_path(appointment.patient_profile_id) %></td>
             <td><%= link_to 'Show', appointment %></td>
           <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
             <td><%= link_to 'Destroy', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    
+            <td><%= link_to 'Pay for the appointment', "charges/new" %></td>
+
             <% elsif current_user.doctor? %>
             <td><%= link_to 'Patient info', patient_profiles_path(appointment.patient_profile_id) %></td>
             <td><%= link_to 'Show', appointment %></td>
          <% end %>
-        
+
       </tr>
     <% end %>
   </tbody>
@@ -54,9 +55,3 @@
 
 <%end%>
 <%end%>
-
-        
-        
-        
-    
-

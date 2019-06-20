@@ -5,6 +5,7 @@ ruby '2.6.0'
 
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
+gem 'stripe'
 
 #MyApp/gemfile
 gem "simple_calendar", "~> 2.0"
