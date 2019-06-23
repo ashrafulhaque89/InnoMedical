@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_16_133941) do
+ActiveRecord::Schema.define(version: 2019_06_23_181905) do
 
   create_table "appointments", force: :cascade do |t|
     t.string "description"
@@ -84,7 +84,9 @@ ActiveRecord::Schema.define(version: 2019_06_16_133941) do
     t.decimal "cost"
     t.integer "doctor_id"
     t.boolean "booked", default: false
+    t.integer "patient_profile_id"
     t.index ["doctor_id"], name: "index_schedules_on_doctor_id"
+    t.index ["patient_profile_id"], name: "index_schedules_on_patient_profile_id"
   end
 
   create_table "users", force: :cascade do |t|
