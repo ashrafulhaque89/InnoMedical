@@ -10,6 +10,14 @@ class SchedulesController < ApplicationController
        @schedules = Schedule.where(:doctor =>current_user.doctor)
     end
   end
+  
+  def booked_schedules
+    if current_user.patient?
+      @schedules=Schedule.where(:patient_profile_id => current_user.patient_profile.id)
+    else 
+       @schedules = Schedule.where(:doctor =>current_user.doctor)
+    end
+  end
 
   # GET /schedules/1
   # GET /schedules/1.json
@@ -62,6 +70,7 @@ class SchedulesController < ApplicationController
   def book
     @schedule=Schedule.find(params[:id])
     @schedule.update_attribute(:booked, true)
+    @schedule.update_attribute(:patient_profile_id, current_user.patient_profile.id)
   end
   # DELETE /schedules/1
   # DELETE /schedules/1.json
@@ -81,6 +90,6 @@ class SchedulesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def schedule_params
-      params.require(:schedule).permit(:title, :start, :end, :booked, :cost)
+      params.require(:schedule).permit(:title, :start, :end, :booked, :cost, :patient_profile_id)
     end
 end

@@ -1,5 +1,6 @@
 class Schedule < ApplicationRecord
     belongs_to :doctor
+
     
     def create
         @schedule = current_doctor.build_schedule(params[:id]) 

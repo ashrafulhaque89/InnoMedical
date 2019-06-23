@@ -4,7 +4,7 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1>Available appointments</h1>
+<h1>Schedules</h1>
 
 <table>
   <thead>
@@ -23,7 +23,7 @@
     <% @schedules.each do |schedule| %>
       <tr>
         <% if !current_user.patient? %>
-          <% if schedule.booked==false %>
+        <% if schedule.booked==true %>
             <td><%= schedule.title %></td>
             <td><%= schedule.start %></td>
             <td><%= schedule.end %></td>
@@ -35,7 +35,7 @@
             <td><%= link_to 'Destroy', schedule, method: :delete, data: { confirm: 'Are you sure?' }%> </td>
             <%end%>
         <%else%>
-          <% if schedule.booked==false %>
+          <% if schedule.booked==true %>
             <td><%= schedule.title %></td>
             <td><%= schedule.start %></td>
             <td><%= schedule.end %></td>
@@ -53,12 +53,12 @@
 
 <br>
 <% if current_user.doctor? %>
-<%= link_to 'New Schedule', new_schedule_path %>
-<%= link_to 'Booked Appointments', '/booked_schedules' %>
-<%= link_to 'Back', doctors_path %>
-<% elsif current_user.patient? %>
-<%= link_to 'Booked Appointments', '/booked_schedules' %>
-<%= link_to 'Back', doctors_path %>
+    <%= link_to 'New Schedule', new_schedule_path %>
+    <%= link_to 'Free Appointments', schedules_path %>
+    <%= link_to 'Back', doctors_path %>
+<%elsif current_user.patient?%>
+    <%= link_to 'Free Appointments', schedules_path %>
+    <%= link_to 'Back', doctors_path %>
 <%end%>
 <%end%>
 
