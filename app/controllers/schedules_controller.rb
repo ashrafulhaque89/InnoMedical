@@ -4,7 +4,7 @@ class SchedulesController < ApplicationController
   # GET /schedules
   # GET /schedules.json
   def index
-    if current_user.doctor?
+    if !current_user.doctor?
       @schedules=Schedule.all
     else 
        @schedules = Schedule.where(:doctor =>current_user.doctor)
