@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   
   resources :doctor_apps
   resources :schedules do
-  put :book
+    member do
+      put :book
+      patch :book
+    end
   end
   resources :appointments
   resources :prescriptions

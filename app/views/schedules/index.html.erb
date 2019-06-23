@@ -34,7 +34,9 @@
             <td><%= link_to 'Destroy', schedule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     
             <% elsif current_user.patient? %>
-            <td><%= link_to("Book", schedule_book_url(schedule), :method => :put) %></td>
+           
+    
+            <td><%= link_to 'Book', book_schedule_path(schedule), method: :put, data: { confirm: 'This agency will not be  allowed to make requests. Proceed?' } %></td>
              
          <% end %>
          

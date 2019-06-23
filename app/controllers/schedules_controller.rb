@@ -48,7 +48,7 @@ class SchedulesController < ApplicationController
   # PATCH/PUT /schedules/1.json
   def update
     respond_to do |format|
-      if @schedule.update(schedule_params.merge(:booked =>true))
+      if @schedule.update(schedule_params)
         format.html { redirect_to @schedule, notice: 'Schedule was successfully updated.' }
         format.json { render :show, status: :ok, location: @schedule }
       else
@@ -60,9 +60,8 @@ class SchedulesController < ApplicationController
   end
 
   def book
-    @schedule = Schedule.find_by_id(params[:id])
-   @schedule=Schedule.update(:booked =>true)
-   
+    @schedule=Schedule.find(params[:id])
+    @schedule.update_attribute(:booked, true)
   end
   # DELETE /schedules/1
   # DELETE /schedules/1.json
