@@ -18,7 +18,7 @@
 <%= link_to 'Medical history', 'patient_histories' %>
 <%= link_to 'Prescriptions', 'prescriptions' %>
 <%= link_to 'Doctor profiles', '/doctors' %>
-<%= link_to 'Appointments', '/appointments' %>
+<%= link_to 'Book an Appointment', '/schedules' %>
 <%elsif current_user.doctor %>
 
 
@@ -29,7 +29,7 @@
 <%= link_to 'Doctor profile', '/doctors' %>
 <%= link_to 'Prescriptions', 'prescriptions' %>
 <%= link_to 'Patient profiles', 'patient_profiles' %>
-<%= link_to 'Appointments', '/appointments' %>
+<%= link_to 'Create Schedule', '/schedules' %>
 <%elsif current_user.admin? %>
 
 
@@ -40,7 +40,7 @@
 <%= link_to 'Patient profile', 'patient_profiles' %>
 <%= link_to 'Medical history', 'patient_histories' %>
 <%= link_to 'Doctors', '/doctors' %>
-<%= link_to 'Appointments', '/appointments' %>
+<%= link_to 'Schedules', '/schedules' %>
 <%= link_to 'Users', '/users' %>
 <% end %>
 <% end %>
