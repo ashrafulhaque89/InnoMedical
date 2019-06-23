@@ -43,6 +43,7 @@
             <td><%= schedule.booked %></td>
             <td><%=schedule.doctor.user.full_name %></td>
              <td><%= link_to 'Book', book_schedule_path(schedule), method: :put, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'Pay for the appointment', "charges/new" %></td>
           <% end %>
         <%end%>
       
