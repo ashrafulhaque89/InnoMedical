@@ -12,21 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2019_06_25_072000) do
 
-  create_table "appointments", force: :cascade do |t|
-    t.string "description"
-    t.integer "cost"
-    t.datetime "startdate"
-    t.datetime "finishdate"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "doctor_id"
-    t.integer "patient_profile_id"
-    t.integer "schedule_id"
-    t.index ["doctor_id"], name: "index_appointments_on_doctor_id"
-    t.index ["patient_profile_id"], name: "index_appointments_on_patient_profile_id"
-    t.index ["schedule_id"], name: "index_appointments_on_schedule_id"
-  end
-
   create_table "diagnoses", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -36,15 +21,6 @@ ActiveRecord::Schema.define(version: 2019_06_25_072000) do
     t.integer "doctor_id"
     t.index ["doctor_id"], name: "index_diagnoses_on_doctor_id"
     t.index ["patient_profile_id"], name: "index_diagnoses_on_patient_profile_id"
-  end
-
-  create_table "doctor_apps", force: :cascade do |t|
-    t.integer "doctor_id"
-    t.integer "appointment_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["appointment_id"], name: "index_doctor_apps_on_appointment_id"
-    t.index ["doctor_id"], name: "index_doctor_apps_on_doctor_id"
   end
 
   create_table "doctors", force: :cascade do |t|
