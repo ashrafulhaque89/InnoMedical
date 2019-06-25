@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get 'users' => 'users#index'
   get '/booked_schedules' => 'schedules#booked_schedules'
+  get '/logout', to: 'users#logout'
   
   
  # get 'Create Appointment' => 'schedule'

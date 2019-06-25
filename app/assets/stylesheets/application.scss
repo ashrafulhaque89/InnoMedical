@@ -14,8 +14,39 @@ margin: auto;
     
 }
 
-    
-    
+div#menu {
+    border-bottom: none;
+    width: 1024px;
+    height: 28px;
+}    
+ #navbar ul          
+ {
+     margin: 0;         
+     padding: 5px;         
+     list-style-type: none;         
+     text-align: left;        
+     background-color: #333;         
+ }  
+ 
+ #navbar ul li           
+ {
+     display: inline;
+       
+ }  
+ 
+ #navbar ul li a          
+ {
+     text-decoration: none;         
+     padding: .2em 1em;         
+     color: #fff;         
+     background-color: #333;         
+     }  
+     
+#navbar ul li a:hover          
+{
+    color: #000;         
+    background-color: #fff;         
+}    
     
 
 img {

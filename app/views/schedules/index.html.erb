@@ -55,10 +55,8 @@
 <% if current_user.doctor? %>
 <%= link_to 'New Schedule', new_schedule_path %>
 <%= link_to 'Booked Appointments', '/booked_schedules' %>
-<%= link_to 'Back', doctors_path %>
 <% elsif current_user.patient? %>
 <%= link_to 'Booked Appointments', '/booked_schedules' %>
-<%= link_to 'Back', doctors_path %>
 <%end%>
 <%end%>
 

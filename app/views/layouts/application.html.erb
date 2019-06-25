@@ -10,6 +10,40 @@
   </head>
 
   <body>
+    <% if user_signed_in? %>
+    <div id='menu'>
+  <div id="navbar">
+      <ul>
+      <% if current_user.patient?%>
+      <li><a href="/patient_profiles">Your profile</a></li>
+      <li><a href="/doctors">Doctors</a></li>
+      <li><a href="/patient_histories">Your medical history</a></li>
+      <li><a href="/schedules">Free appointments</a></li>
+      <li><a href="/booked_schedules">Your appointments</a></li>
+      <li><a href="/diagnoses">Your diagnosis</a></li>
+      <li><a href="/prescriptions">Your prescriptions</a></li>
+      <%elsif current_user.doctor?%>
+      <li><a href="/doctors">Your profile</a></li>
+      <li><a href="/patient_profiles">Patients</a></li>
+      <li><a href="/patient_histories">Medical histories</a></li>
+      <li><a href="/schedules">Create appointments</a></li>
+      <li><a href="/booked_schedules">Your appointments</a></li>
+      <li><a href="/diagnoses">Set up diagnosis</a></li>
+      <li><a href="/prescriptions">Prescriptions</a></li>
+      <% elsif current_user.admin? %>
+      <li><a href="/doctors">Doctors</a></li>
+      <li><a href="/patient_profiles">Patients</a></li>
+      <li><a href="/patient_histories">Medical histories</a></li>
+      <li><a href="/schedules">Free appointments</a></li>
+      <li><a href="/booked_schedules">Booked appointments</a></li>
+      <li><a href="/diagnoses">Diagnosis</a></li>
+      <li><a href="/prescriptions">Prescriptions</a></li>
+      <%end%>
+      </ul>
+      </div> 
+    <%end%>
+
+</div>
     <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
 
