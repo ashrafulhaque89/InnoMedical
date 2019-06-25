@@ -1,6 +1,10 @@
+<% if !current_user.patient? %>
 <h1>New Prescription</h1>
 
 
 <%= render 'form', prescription: @prescription %>
 
 <%= link_to 'Back', prescriptions_path %>
+<%else%>
+<h1>This page is not available for you</h1>
+<%end%>

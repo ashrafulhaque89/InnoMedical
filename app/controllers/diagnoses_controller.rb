@@ -20,7 +20,9 @@ class DiagnosesController < ApplicationController
 
   # GET /diagnoses/new
   def new
+    if !current_user.patient? 
     @diagnosis = Diagnosis.new
+    end
   end
 
   # GET /diagnoses/1/edit
@@ -30,6 +32,7 @@ class DiagnosesController < ApplicationController
   # POST /diagnoses
   # POST /diagnoses.json
   def create
+    if !current_user.patient? 
     @diagnosis = Diagnosis.new(diagnosis_params.merge(:doctor => current_user.doctor))
 
     respond_to do |format|
@@ -41,11 +44,13 @@ class DiagnosesController < ApplicationController
         format.json { render json: @diagnosis.errors, status: :unprocessable_entity }
       end
     end
+    end
   end
 
   # PATCH/PUT /diagnoses/1
   # PATCH/PUT /diagnoses/1.json
   def update
+    if !current_user.patient? 
     respond_to do |format|
       if @diagnosis.update(diagnosis_params)
         format.html { redirect_to @diagnosis, notice: 'Diagnosis was successfully updated.' }
@@ -54,6 +59,7 @@ class DiagnosesController < ApplicationController
         format.html { render :edit }
         format.json { render json: @diagnosis.errors, status: :unprocessable_entity }
       end
+    end
     end
   end
 

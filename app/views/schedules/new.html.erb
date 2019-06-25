@@ -1,5 +1,9 @@
+<% if !current_user.patient? %>
 <h1>New Schedule</h1>
 
 <%= render 'form', schedule: @schedule %>
 
 <%= link_to 'Back', schedules_path %>
+<%else%>
+<h1>This page is not available for you</h1>
+<%end%>

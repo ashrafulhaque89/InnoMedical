@@ -30,8 +30,6 @@
         <td><%= link_to 'Show', patient_history %></td>
         <% if !current_user.doctor? %>
         <td><%= link_to 'Edit', edit_patient_history_path(patient_history) %></td>
-        
-        <%elsif current_user.admin?%>
         <td><%= link_to 'Destroy', patient_history, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <%end%>
         <td><%= link_to 'Show Patient\'s profile', patient_profile_path(patient_history.patient_profile_id) %></td>
@@ -40,5 +38,6 @@
 
   </tbody>
 </table>
+<td><%= link_to 'New medical history', new_patient_history_path %></td>
 
 <br>

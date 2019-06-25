@@ -52,10 +52,10 @@
 </table>
 
 <br>
-<% if current_user.doctor? %>
+<% if !current_user.patient? %>
 <%= link_to 'New Schedule', new_schedule_path %>
 <%= link_to 'Booked Appointments', '/booked_schedules' %>
-<% elsif current_user.patient? %>
+<% else %>
 <%= link_to 'Booked Appointments', '/booked_schedules' %>
 <%end%>
 <%end%>

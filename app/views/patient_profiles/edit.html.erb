@@ -1,6 +1,10 @@
+<% if !current_user.doctor? %>
 <h1>Editing Patient Profile</h1>
 
 <%= render 'form', patient_profile: @patient_profile %>
 
 <%= link_to 'Show', @patient_profile %> |
 <%= link_to 'Back', patient_profiles_path %>
+<%else%>
+<h1>This page is not available for you</h1>
+<%end%>

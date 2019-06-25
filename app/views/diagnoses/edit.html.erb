@@ -1,6 +1,10 @@
+<% if !current_user.patient? %>
 <h1>Editing Diagnosis</h1>
 
 <%= render 'form', diagnosis: @diagnosis %>
 
 <%= link_to 'Show', @diagnosis %> |
 <%= link_to 'Back', diagnoses_path %>
+<%else%>
+<h1>This page is not available for you</h1>
+<%end%>

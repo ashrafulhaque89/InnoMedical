@@ -14,8 +14,10 @@ class SchedulesController < ApplicationController
   def booked_schedules
     if current_user.patient?
       @schedules=Schedule.where(:patient_profile_id => current_user.patient_profile.id)
-    else 
+    elsif current_user.doctor?
        @schedules = Schedule.where(:doctor =>current_user.doctor)
+    else
+      @schedules=Schedule.all
     end
   end
 
