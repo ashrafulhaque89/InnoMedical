@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :diagnoses
   resources :doctor_apps
   resources :schedules do
     member do

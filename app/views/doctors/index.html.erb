@@ -52,6 +52,8 @@
 <%= link_to 'Prescriptions', 'prescriptions' %>
 <%= link_to 'Medical History', 'patient_histories' %>
 <%= link_to 'View Doctor Schedule', 'schedules' %>
+<%= link_to 'Diagnosis', 'diagnoses' %>
+
 
 <% if current_user.doctor? %>
 <%= link_to 'New Schedule', new_schedule_path %>

@@ -19,7 +19,6 @@ class Schedule < ApplicationRecord
     def start_and_end_date
         [start].select(&:present?).join(' ').titleize
     end
-    
-   
+
     
 end

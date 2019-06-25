@@ -2,6 +2,7 @@ class PatientProfile < ApplicationRecord
     belongs_to :user, :foreign_key => 'user_id' 
     has_many :patient_histories
     has_many :prescriptions
+    has_many :diagnoses
      has_many :appointments
     enum gender: [ :male , :female ]
     
@@ -16,4 +17,5 @@ class PatientProfile < ApplicationRecord
          all
         end
     end
+    
 end

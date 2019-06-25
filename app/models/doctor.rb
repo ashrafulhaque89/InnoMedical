@@ -1,7 +1,7 @@
 class Doctor < ApplicationRecord
     belongs_to :user
     has_many :prescriptions
-   
+    has_many :diagnoses   
     has_many :appointments, :through => :schedules 
     has_many :schedules, :dependent => :destroy
     
