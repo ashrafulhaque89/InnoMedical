@@ -34,4 +34,6 @@
 
 <br>
 
+<% if !current_user.patient? %>
 <%= link_to 'New Diagnosis', new_diagnosis_path, class: 'btn btn-primary' %>
+<% end%>

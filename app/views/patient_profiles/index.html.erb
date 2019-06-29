@@ -33,7 +33,7 @@
         <% if !current_user.doctor? %>
         <td><%= link_to 'Edit', edit_patient_profile_path(patient_profile), class: 'btn btn-primary' %></td>
         <%end%>
-        <% if !current_user.admin? %>
+        <% if current_user.admin? %>
         <td><%= link_to 'Destroy', patient_profile, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary'  %></td>
         <%end%>
 

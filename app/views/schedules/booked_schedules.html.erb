@@ -30,7 +30,9 @@
 
             <td><%= link_to 'Show', schedule %></td>
             <td><%= link_to 'Edit', edit_schedule_path(schedule) %></td>
+            <% if current_user.admin? %>
             <td><%= link_to 'Destroy', schedule, method: :delete, data: { confirm: 'Are you sure?' }%> </td>
+            <%end%>
             <%end%>
         <%else%>
           <% if schedule.booked==true %>
@@ -40,7 +42,6 @@
             <td><%= schedule.cost %></td>
             <td><%= schedule.booked %></td>
             <td><%=schedule.doctor.user.full_name %></td>
-             <td><%= link_to 'Book', book_schedule_path(schedule), method: :put, data: { confirm: 'Are you sure?' }, class: 'btn btn-secondary' %></td>
               <td><%= link_to 'Pay', "charges/new", class: 'btn btn-secondary' %></td>
           <% end %>
         <%end%>

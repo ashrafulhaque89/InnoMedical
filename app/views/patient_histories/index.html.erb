@@ -31,6 +31,7 @@
 
   </tbody>
 </table>
+<% if !current_user.doctor? %>
 <td><%= link_to 'New medical history', new_patient_history_path, class: 'btn btn-primary' %></td>
-
+<% end %>
 <br>
