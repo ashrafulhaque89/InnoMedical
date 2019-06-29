@@ -3,8 +3,8 @@
 
 <%= render 'form', diagnosis: @diagnosis %>
 
-<%= link_to 'Show', @diagnosis %> |
-<%= link_to 'Back', diagnoses_path %>
+<%= link_to 'Show', @diagnosis, class: 'btn btn-primary' %> |
+<%= link_to 'Back', diagnoses_path, class: 'btn btn-primary' %>
 <%else%>
 <h1>This page is not available for you</h1>
 <%end%>

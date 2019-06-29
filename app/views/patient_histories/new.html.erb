@@ -11,7 +11,7 @@
 
 <%= render 'form', patient_history: @patient_history %>
 
-<%= link_to 'Back', patient_histories_path %>
+<%= link_to 'Back', patient_histories_path, class: 'btn btn-primary' %>
 <%else%>
 <h1>This page is not available for you</h1>
 <%end%>

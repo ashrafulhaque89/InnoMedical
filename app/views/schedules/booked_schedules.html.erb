@@ -1,12 +1,9 @@
-
 <% if user_signed_in? %>
-
-
 <p id="notice"><%= notice %></p>
-
 <h1>Schedules</h1>
 
-<table>
+<div class="table-responsive">
+<table class="table table-condensed">
   <thead>
     <tr>
       <th>Title</th>
@@ -14,8 +11,8 @@
       <th>End</th>
       <th>Cost</th>
       <th>Booked</th>
-      <th>Doctor's name</th>
-      <th colspan="7"></th>
+      <th>Doctor</th>
+      <th colspan="6"></th>
     </tr>
   </thead>
 
@@ -30,7 +27,7 @@
             <td><%= schedule.cost %></td>
             <td><%= schedule.booked %></td>
             <td><%=schedule.doctor.user.full_name %></td>
-         
+
             <td><%= link_to 'Show', schedule %></td>
             <td><%= link_to 'Edit', edit_schedule_path(schedule) %></td>
             <td><%= link_to 'Destroy', schedule, method: :delete, data: { confirm: 'Are you sure?' }%> </td>
@@ -43,24 +40,24 @@
             <td><%= schedule.cost %></td>
             <td><%= schedule.booked %></td>
             <td><%=schedule.doctor.user.full_name %></td>
-             <td><%= link_to 'Book', book_schedule_path(schedule), method: :put, data: { confirm: 'Are you sure?' } %></td>
-              <td><%= link_to 'Pay for the appointment', "charges/new" %></td>
+             <td><%= link_to 'Book', book_schedule_path(schedule), method: :put, data: { confirm: 'Are you sure?' }, class: 'btn btn-secondary' %></td>
+              <td><%= link_to 'Pay', "charges/new", class: 'btn btn-secondary' %></td>
           <% end %>
         <%end%>
-      
+
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
 
 <br>
 <% if current_user.doctor? %>
-    <%= link_to 'New Schedule', new_schedule_path %>
-    <%= link_to 'Free Appointments', schedules_path %>
-    <%= link_to 'Back', doctors_path %>
+    <%= link_to 'New Schedule', new_schedule_path, class: 'btn btn-primary' %>
+    <%= link_to 'Free Appointments', schedules_path, class: 'btn btn-primary' %>
+    <%= link_to 'Go Back', doctors_path, class: 'btn btn-primary' %>
 <%elsif current_user.patient?%>
-    <%= link_to 'Free Appointments', schedules_path %>
-    <%= link_to 'Back', doctors_path %>
+    <%= link_to 'Free Appointments', schedules_path, class: 'btn btn-primary' %>
+    <%= link_to 'Go Back', doctors_path, class: 'btn btn-primary' %>
 <%end%>
 <%end%>
-

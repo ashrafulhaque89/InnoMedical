@@ -11,19 +11,19 @@
       </ul>
     </div>
   <% end %>
-  
+
 
 
   <div class="field">
     <%= form.label :ethnicity %>
     <%= form.text_field :ethnicity %>
   </div>
-  
+
   <div class="field">
       <%= form.label :gender %><br />
      <%=form.select :gender, [['male', :male], ['female', :female]] %>
   </div>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-primary' %>
   </div>
 <% end %>

@@ -1,63 +1,75 @@
 @import "bootstrap";
+@import "rails-chat-tutorial";
 
 
-body {
-   background-image: url("bg.jpg");
+ body {
+  background-image: url("bg.jpg");
   background-color: lightblue;
-
-margin: auto;
-  width: 50%;
-  padding: 10px;
-  
+  margin: auto;
+  width: 80%;
+  padding: 50px;
   font-family: "Times New Roman", Times, serif;
-
-    
+  background-size:100% 100vh;
+  background-repeat: no-repeat;
 }
 
+.logo-img {
+  position:absolute;
+  left:10px;
+  top:10px;
+
+  }
+
+.myNavbar   {
+    background-color: #ccc;
+    color:#222;
+    border: 1px solid #333;
+ }
 div#menu {
     border-bottom: none;
-    width: 1024px;
+    width: 800px;
     height: 28px;
-}    
- #navbar ul          
+}
+ #navbar ul
  {
-     margin: 0;         
-     padding: 5px;         
-     list-style-type: none;         
-     text-align: left;        
-     background-color: #333;         
- }  
- 
- #navbar ul li           
+     margin: 0;
+     padding: 5px;
+     list-style-type: none;
+     text-align: left;
+     background-color: #333;
+ }
+
+ #navbar ul li
  {
      display: inline;
-       
- }  
- 
- #navbar ul li a          
- {
-     text-decoration: none;         
-     padding: .2em 1em;         
-     color: #fff;         
-     background-color: #333;         
-     }  
-     
-#navbar ul li a:hover          
-{
-    color: #000;         
-    background-color: #fff;         
-}    
-    
 
-img {
+ }
+
+ #navbar ul li a
+ {
+     text-decoration: none;
+     padding: .2em 1em;
+     color: #fff;
+     background-color: #333;
+     }
+
+#navbar ul li a:hover
+{
+    color: #000;
+    background-color: #fff;
+}
+
+
+.img {
 width: 300px;
 height: 132px;
 
- position: absolute;
+ position: center;
   left: 0px;
   top: 0px;
   z-index: -1;
 }
+
 
 
 

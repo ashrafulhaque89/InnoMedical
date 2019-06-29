@@ -1,11 +1,3 @@
-<%= link_to root_path do %>
-
-
-<%= image_tag(image_path('Logo1.png')) -%>
-
-<% end %>
-
-
 <% if user_signed_in? %>
 <p id="notice"><%= notice %></p>
 
@@ -23,26 +15,26 @@
   </thead>
 
   <tbody>
-    
+
     <% @prescriptions.each do |prescription| %>
       <tr>
         <td><%= prescription.patient_profile.user.full_name %></td>
         <td><%= prescription.doctor.user.full_name %></td>
         <td><%= prescription.medicine_name %></td>
         <td><%= prescription.prescription_date %></td>
-        
-        
+
+
           <% if current_user.doctor? %>
           <td><%= link_to 'Patient info', patient_profile_path(prescription.doctor_id) %></td>
            <td><%= link_to 'Show', prescription %></td>
           <td><%= link_to 'Edit', edit_prescription_path(prescription) %></td>
             <td><%= link_to 'Destroy', prescription, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    
+
             <% elsif current_user.patient? %>
             <td><%= link_to 'Doctor info', doctor_path(prescription.doctor_id) %></td>
             <td><%= link_to 'Show', prescription %></td>
          <% end %>
-        
+
       </tr>
     <% end %>
   </tbody>
@@ -50,7 +42,6 @@
 
 <br>
 <% if current_user.doctor? %>
-  <%= link_to 'New Prescription', new_prescription_path %>
+  <%= link_to 'New Prescription', new_prescription_path, class: 'btn btn-primary' %>
 <%end%>
 <%end%>
-

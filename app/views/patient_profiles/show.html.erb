@@ -33,8 +33,8 @@
 </p>
 
 
-<%= link_to 'Edit', edit_patient_profile_path(@patient_profile) %> |
-<%= link_to 'Back', patient_profiles_path %>
+<%= link_to 'Edit', edit_patient_profile_path(@patient_profile), class: 'btn btn-primary' %>
+<%= link_to 'Go Back', patient_profiles_path, class: 'btn btn-primary' %>
 <%if current_user.admin?%>
 <td>| <%= link_to 'Destroy', @doctor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-<%end%> 
+<%end%>

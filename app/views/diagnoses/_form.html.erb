@@ -20,13 +20,13 @@
     <%= form.label :description %>
     <%= form.text_area :description %>
   </div>
-  
+
   <div class="field">
     <%= form.label :patient_profile_id %>
     <%= form.select(:patient_profile_id, PatientProfile.all.collect { |p| [p.user.full_name, p.id ] }) %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-primary' %>
   </div>
 <% end %>

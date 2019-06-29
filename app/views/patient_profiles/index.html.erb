@@ -1,11 +1,3 @@
-<%= link_to root_path do %>
-
-
-<%= image_tag(image_path('Logo1.png')) -%>
-
-<% end %>
-
-
 <p id="notice"><%= notice %></p>
 
 <%if current_user.patient? %>
@@ -28,29 +20,26 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-  
+
 
 
   <tbody>
-   
+
     <% @patient_profiles.each do |patient_profile| %>
       <tr>
         <td><%= patient_profile.user.firstname %></td>
         <td><%= patient_profile.user.lastname %></td>
-        <td><%= link_to 'Show', patient_profile %></td>
+        <td><%= link_to 'Show', patient_profile, class: 'btn btn-primary' %></td>
         <% if !current_user.doctor? %>
-        <td><%= link_to 'Edit', edit_patient_profile_path(patient_profile) %></td>
+        <td><%= link_to 'Edit', edit_patient_profile_path(patient_profile), class: 'btn btn-primary' %></td>
         <%end%>
-        <% if current_user.admin? %>
-        <td><%= link_to 'Destroy', patient_profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if !current_user.admin? %>
+        <td><%= link_to 'Destroy', patient_profile, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary'  %></td>
         <%end%>
-        
+
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-
-

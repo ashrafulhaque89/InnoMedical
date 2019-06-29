@@ -3,8 +3,8 @@
 
 
 <%= render 'form', prescription: @prescription %>
-
-<%= link_to 'Back', prescriptions_path %>
+<br>
+<%= link_to 'Go Back', prescriptions_path, class: 'btn btn-primary' %>
 <%else%>
 <h1>This page is not available for you</h1>
 <%end%>

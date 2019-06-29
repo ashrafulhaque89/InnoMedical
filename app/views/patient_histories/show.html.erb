@@ -6,17 +6,17 @@
 <% end %>
 
 <p id="notice"><%= notice %></p>
- 
+
 <p>
   <strong>Medical history:</strong>
   <%= @patient_history.created_at.strftime("%m/%d/%Y %H:%M") %>
 </p>
- 
+
 <p>
   <strong>Medical history:</strong>
   <%= @patient_history.medical_history %>
 </p>
- 
+
 <p>
   <% if @patient_history.picture.url %>
   <strong>Image:</strong>
@@ -24,6 +24,6 @@
   <%= image_tag(@patient_history.picture.url, size: "220x160")%>
   <% end %>
 </p>
- 
-<%= link_to 'Edit', edit_patient_history_path(@patient_history) %> |
-<%= link_to 'Back', patient_histories_path %>
+
+<%= link_to 'Edit', edit_patient_history_path(@patient_history), class: 'btn btn-primary' %> |
+<%= link_to 'Back', patient_histories_path, class: 'btn btn-primary' %>

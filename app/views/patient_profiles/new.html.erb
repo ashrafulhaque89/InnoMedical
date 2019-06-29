@@ -2,7 +2,7 @@
 <%= link_to root_path do %>
 
 
-<%= image_tag(image_path('Logo1.png')) -%>
+
 
 <% end %>
 
@@ -10,7 +10,7 @@
 
 <%= render 'form', patient_profile: @patient_profile %>
 
-<%= link_to 'Back', patient_profiles_path %>
+<%= link_to 'Back', patient_profiles_path, class: 'btn btn-primary' %>
 <%else%>
 <h1>This page is not available for you</h1>
 <%end%>

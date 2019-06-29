@@ -20,9 +20,9 @@
     <%= form.label :instructions %>
     <%= form.text_area :instructions %>
   </div>
-  
-  
-    
+
+
+
 
   <div class="field">
     <%= form.label :prescription_date %>
@@ -33,14 +33,14 @@
     <%= form.label :valid_until_date %>
     <%= form.date_select :valid_until_date, start_year: Date.today.year,discard_day:true %>
   </div>
-  
+
   <div class="field">
     <%= form.label :patient_profile_id %>
     <%= form.select(:patient_profile_id, PatientProfile.all.collect { |p| [p.user.full_name, p.id ] }) %>
   </div>
-  
+
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-primary' %>
   </div>
 <% end %>

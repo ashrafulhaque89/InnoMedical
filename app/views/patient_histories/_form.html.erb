@@ -2,7 +2,7 @@
   <% if @patient_history.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@patient_history.errors.count, "error") %> prohibited this picture from being saved:</h2>
- 
+
       <ul>
       <% @patient_history.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
- 
+
   <div class="field">
     <%= f.label :medical_history %><br>
     <%= f.text_area :medical_history %>
@@ -21,11 +21,11 @@
     <% if f.object.picture? %>
       <%= image_tag(@patient_history.picture.url, size: "220x160") %>
       <%= f.label :remove_picture %>
-      <%= f.check_box :remove_picture %> 
+      <%= f.check_box :remove_picture %>
     <% end %>
   </div>
- 
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-primary' %>
   </div>
 <% end %>

@@ -1,11 +1,3 @@
-<%= link_to root_path do %>
-
-
-<%= image_tag(image_path('Logo1.png')) -%>
-
-<% end %>
-
-
 <p id="notice"><%= notice %></p>
 
 <% if current_user.doctor? %>
@@ -28,9 +20,9 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-  
+
   <tbody>
-    
+
     <% @doctors.each do |doctor| %>
       <tr>
         <td><%= doctor.user.firstname %></td>
@@ -42,13 +34,10 @@
         <%end%>
         <%if current_user.admin?%>
         <td><%= link_to 'Destroy', doctor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <%end%> 
+        <%end%>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-
-
