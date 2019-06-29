@@ -9,6 +9,10 @@ Rails.application.routes.draw do
       put :book
       patch :book
     end
+    member do
+      put :pay
+      patch :pay
+    end
   end
   resources :appointments
   resources :prescriptions

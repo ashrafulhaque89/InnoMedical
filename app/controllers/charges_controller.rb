@@ -5,7 +5,8 @@ class ChargesController < ApplicationController
 end
 
 def create
-  @amount = 7000
+  @charge = Charge.new(schedule_params.merge(:schedule => current_user.patient_profile.schedule))
+  @amount = charge.schedule.cost
 
   customer = Stripe::Customer.create(
     email: params[:stripeEmail],

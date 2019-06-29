@@ -74,6 +74,13 @@ class SchedulesController < ApplicationController
     @schedule.update_attribute(:booked, true)
     @schedule.update_attribute(:patient_profile_id, current_user.patient_profile.id)
   end
+  
+  def pay
+    @schedule=Schedule.find(params[:id])
+    @schedule.update_attribute(:paid, true)
+    render "charges/new"
+  end
+  
   # DELETE /schedules/1
   # DELETE /schedules/1.json
   def destroy

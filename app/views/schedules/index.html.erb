@@ -11,7 +11,6 @@
       <th>Start</th>
       <th>End</th>
       <th>Cost</th>
-      <th>Booked</th>
       <th>Doctor's name</th>
       <th colspan="7"></th>
     </tr>
@@ -26,7 +25,6 @@
             <td><%= schedule.start %></td>
             <td><%= schedule.end %></td>
             <td><%= schedule.cost %></td>
-            <td><%= schedule.booked %></td>
             <td><%=schedule.doctor.user.full_name %></td>
             <td><%= link_to 'Show', schedule %></td>
             <td><%= link_to 'Edit', edit_schedule_path(schedule) %></td>
@@ -38,7 +36,6 @@
             <td><%= schedule.start %></td>
             <td><%= schedule.end %></td>
             <td><%= schedule.cost %></td>
-            <td><%= schedule.booked %></td>
             <td><%=schedule.doctor.user.full_name %></td>
              <td><%= link_to 'Book', book_schedule_path(schedule), method: :put, data: { confirm: 'Are you sure?' } %></td>
           <% end %>

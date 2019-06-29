@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_26_182026) do
+ActiveRecord::Schema.define(version: 2019_06_29_140335) do
+
+  create_table "charges", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "schedule_id"
+    t.index ["schedule_id"], name: "index_charges_on_schedule_id"
+  end
 
   create_table "diagnoses", force: :cascade do |t|
     t.string "title"
@@ -89,6 +96,7 @@ ActiveRecord::Schema.define(version: 2019_06_26_182026) do
     t.integer "doctor_id"
     t.boolean "booked", default: false
     t.integer "patient_profile_id"
+    t.boolean "paid", default: false
     t.index ["doctor_id"], name: "index_schedules_on_doctor_id"
     t.index ["patient_profile_id"], name: "index_schedules_on_patient_profile_id"
   end
