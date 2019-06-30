@@ -5,6 +5,7 @@ class ChargesController < ApplicationController
 end
 
 def create
+
   @amount = 7000
 
   customer = Stripe::Customer.create(

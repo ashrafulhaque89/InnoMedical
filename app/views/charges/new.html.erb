@@ -6,8 +6,8 @@
 </div>
 <% end %>
 <label class="amount">
-    
-<span>Amount: USD <%= @schedule.cost %></span>
+
+<span>Amount: EUR <%= @schedule.cost %></span>
 </label>
 </article>
 
@@ -15,7 +15,7 @@
 Stripe.setPublishableKey('PUBLISHABLE_KEY');
 data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
 data-description="GP Consultation"
-data-amount=<%=@schedule.cost * 100%>
+data-amount="<%= @schedule.cost*100 %>"
 data-locale="auto"></script
 
 <% end %>
