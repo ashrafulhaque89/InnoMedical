@@ -5,8 +5,7 @@ class ChargesController < ApplicationController
 end
 
 def create
-  @charge = Charge.new(schedule_params.merge(:schedule => current_user.patient_profile.schedule))
-  @amount = charge.schedule.cost
+  @amount = 7000
 
   customer = Stripe::Customer.create(
     email: params[:stripeEmail],
@@ -24,4 +23,9 @@ rescue Stripe::CardError => e
   flash[:error] = e.message
   redirect_to new_charge_path
 end
+
+ def charge_params
+      params.require(:charges).permit(:schedule_id)
+    end
+
 end

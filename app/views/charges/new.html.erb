@@ -15,7 +15,7 @@
 Stripe.setPublishableKey('PUBLISHABLE_KEY');
 data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
 data-description="GP Consultation"
-data-amount="7000"
+data-amount=<%=@schedule.cost * 100%>
 data-locale="auto"></script
 
 <% end %>
