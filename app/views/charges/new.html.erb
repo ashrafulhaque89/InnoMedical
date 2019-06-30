@@ -1,3 +1,11 @@
+<div style="text-align:center">
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
 <%= form_tag charges_path do %>
 <article>
 <% if flash[:error].present? %>
@@ -7,10 +15,9 @@
 <% end %>
 <label class="amount">
 
-<span>Amount: EUR <%= @schedule.cost %></span>
+<h2>Amount: EUR <%= @schedule.cost %></h2>
 </label>
 </article>
-
 <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 Stripe.setPublishableKey('PUBLISHABLE_KEY');
 data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
@@ -19,5 +26,7 @@ data-amount="<%= @schedule.cost*100 %>"
 data-locale="auto"></script
 
 <% end %>
-
-<%= link_to 'Back','/booked_schedules' %>
+<br>
+<br>
+<%= link_to 'Go Back','/booked_schedules', class: 'btn btn-warning' %>
+</div>

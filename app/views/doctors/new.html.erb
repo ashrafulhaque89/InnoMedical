@@ -2,7 +2,7 @@
 <%= link_to root_path do %>
 
 
-<%= image_tag(image_path('Logo1.png')) -%>
+
 
 <% end %>
 
@@ -11,7 +11,7 @@
 
 <%= render 'form', doctor: @doctor %>
 
-<%= link_to 'Back', doctors_path %>
+
 <%else%>
 <h1>This page is not available for you</h1>
 <%end%>

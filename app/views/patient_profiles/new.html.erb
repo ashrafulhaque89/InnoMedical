@@ -8,9 +8,8 @@
 
 <h1>New Patient Profile</h1>
 
-<%= render 'form', patient_profile: @patient_profile %>
+<%= render 'form', patient_profile: @patient_profile %><br>
 
-<%= link_to 'Back', patient_profiles_path, class: 'btn btn-primary' %>
 <%else%>
 <h1>This page is not available for you</h1>
 <%end%>
