@@ -16,9 +16,9 @@
   <% if @patient_history.picture.url %>
   <strong>Image:</strong>
 
-  <%= image_tag(@patient_history.picture.url, size: "220x160")%>
+  <%= image_tag(@patient_history.picture.url, size: "800x450")%>
   <% end %>
 </p>
 
-<%= link_to 'Edit', edit_patient_history_path(@patient_history), class: 'btn btn-primary' %> |
+<%= link_to 'Edit', edit_patient_history_path(@patient_history), class: 'btn btn-primary' %>
 <%= link_to 'Back', patient_histories_path, class: 'btn btn-primary' %>

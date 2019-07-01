@@ -103,7 +103,9 @@
       <%elsif current_user.doctor?%>
       <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container">
-          <a class="navbar-brand" href="/patient_profiles">InnoMed</a>
+          <%= link_to root_path do %>
+          <%= image_tag(image_path('Logo2.png')) -%>
+          <% end %>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -181,7 +183,7 @@
     <%end%>
 
 
-   
+
        <p class="alert"><%= alert %></p>
 
     <%= yield %>

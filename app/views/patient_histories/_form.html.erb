@@ -19,12 +19,12 @@
     <%= f.label :picture %><br>
     <%= f.file_field :picture %>
     <% if f.object.picture? %>
-      <%= image_tag(@patient_history.picture.url, size: "220x160") %>
+      <%= image_tag(@patient_history.picture.url, size: "800x450") %>
       <%= f.label :remove_picture %>
       <%= f.check_box :remove_picture %>
     <% end %>
   </div>
-
+<br>
   <div class="actions">
     <%= f.submit class: 'btn btn-primary' %>
   </div>

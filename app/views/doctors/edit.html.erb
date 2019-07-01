@@ -2,9 +2,9 @@
 <h1>Editing Doctor</h1>
 
 <%= render 'form', doctor: @doctor %>
-
-<%= link_to 'Show', @doctor %> |
-<%= link_to 'Back', doctors_path %>
+<br>
+<%= link_to 'Show', @doctor, class: 'btn btn-primary' %>
+<%= link_to 'Back', doctors_path, class: 'btn btn-primary' %>
 <%else%>
 <h1>This page is not available for you</h1>
 <%end%>

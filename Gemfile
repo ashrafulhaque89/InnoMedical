@@ -9,6 +9,7 @@ gem 'stripe'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'redis'
+gem 'bootstrap-form'
 
 #MyApp/gemfile
 gem "simple_calendar", "~> 2.0"

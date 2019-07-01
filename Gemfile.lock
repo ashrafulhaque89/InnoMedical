@@ -59,6 +59,9 @@ GEM
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 1.14.3, < 2)
       sassc-rails (>= 2.0.0)
+    bootstrap-form (3.0.0)
+      actionpack (> 3.2)
+      railties (> 3.2)
     builder (3.2.3)
     byebug (11.0.1)
     cancancan (3.0.1)
@@ -258,6 +261,7 @@ DEPENDENCIES
   autoprefixer-rails
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.3.1)
+  bootstrap-form
   byebug
   cancancan
   capybara (>= 2.15)
