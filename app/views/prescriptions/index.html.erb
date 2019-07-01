@@ -3,8 +3,8 @@
 
 <h1>Prescriptions</h1>
 
-<table>
-  <thead>
+<div class="table-responsive">
+<table class="table table-hover table-dark">
     <tr>
       <th>Patient's name</th>
       <th>Doctor's name</th>
@@ -25,20 +25,21 @@
 
 
           <% if current_user.doctor? %>
-          <td><%= link_to 'Patient info', patient_profile_path(prescription.doctor_id) %></td>
-           <td><%= link_to 'Show', prescription %></td>
-          <td><%= link_to 'Edit', edit_prescription_path(prescription) %></td>
-            <td><%= link_to 'Destroy', prescription, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Patient', patient_profile_path(prescription.doctor_id), class: 'btn btn-info' %></td>
+           <td><%= link_to 'Show', prescription, class: 'btn btn-info' %></td>
+          <td><%= link_to 'Edit', edit_prescription_path(prescription), class: 'btn btn-warning' %></td>
+            <td><%= link_to 'Destroy', prescription, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
 
             <% elsif current_user.patient? %>
-            <td><%= link_to 'Doctor info', doctor_path(prescription.doctor_id) %></td>
-            <td><%= link_to 'Show', prescription %></td>
+            <td><%= link_to 'Doctor info', doctor_path(prescription.doctor_id), class: 'btn btn-info' %></td>
+            <td><%= link_to 'Show Prescription', prescription, class: 'btn btn-info' %></td>
          <% end %>
 
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
 
 <br>
 <% if current_user.doctor? %>

@@ -2,15 +2,15 @@
 <%= link_to root_path do %>
 
 
-<%= image_tag(image_path('Logo1.png')) -%>
+
 
 <% end %>
 
 
 <h1>New Patient History</h1>
-
+<br>
 <%= render 'form', patient_history: @patient_history %>
-
+<br>
 <%= link_to 'Back', patient_histories_path, class: 'btn btn-primary' %>
 <%else%>
 <h1>This page is not available for you</h1>

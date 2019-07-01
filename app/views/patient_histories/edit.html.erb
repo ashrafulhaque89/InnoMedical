@@ -2,8 +2,8 @@
 <h1>Editing Patient History</h1>
 
 <%= render 'form', patient_history: @patient_history %>
-
-<%= link_to 'Show', @patient_history, class: 'btn btn-primary' %> |
+<br>
+<%= link_to 'Show', @patient_history, class: 'btn btn-primary' %>
 <%= link_to 'Go Back', patient_histories_path, class: 'btn btn-primary' %>
 <%else%>
 <h1>This page is not available for you</h1>
