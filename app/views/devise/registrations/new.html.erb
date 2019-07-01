@@ -4,51 +4,65 @@
 <% end %>
 </div>
 
-<h2>Sign up</h2>
-
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Sign Up</h5>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <form class="form-signup">
+              <div class="form-group">
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"  %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password", class: "form-control"  %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control"  %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :firstname %><br />
-    <%= f.text_field :firstname %>
+    <%= f.text_field :firstname, class: "form-control"  %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :lastname %><br />
-    <%= f.text_field :lastname %>
+    <%= f.text_field :lastname, class: "form-control"  %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :phonenumber %><br />
-    <%= f.telephone_field :phonenumber, data: { mask: '(999) 999-9999' } %>
+    <%= f.telephone_field :phonenumber, data: { mask: '(999) 999-9999' }, class: "form-control"  %>
   </div>
 
-    <div class="field">
+   <div class="form-group">
       <%= f.label :role %><br />
-     <%=f.select :role, [['doctor', :doctor], ['patient', :patient]] %>
+     <%=f.select :role, [['doctor', :doctor], ['patient', :patient]], class: "form-control"  %>
   </div>
 <br>
 
   <div class="actions">
-    <%= f.submit "Sign me up!", class: 'btn btn-success'%> OR <%= link_to 'Would you rather Sign in?', new_user_session_path, class: 'btn btn-warning'%>
+    <%= f.submit "Sign me up!", class: 'btn btn-success'%><br><br><%= link_to 'Or Wanna Sign In?', new_user_session_path, class: 'btn btn-warning'%>
   </div>
 <% end %>
+ </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

@@ -1,3 +1,11 @@
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Where you from?</h5>
+
 <%= form_with(model: patient_profile, local: true) do |form| %>
 
   <% if patient_profile.errors.any? %>
@@ -14,17 +22,24 @@
 
 
 
-  <div class="field">
-    <%= form.label :ethnicity %>
-    <%= form.text_field :ethnicity %>
+  <div class="form-group">
+    
+    <%= form.text_field :ethnicity, class: "form-control" %>
   </div>
 
   <div class="field">
       <%= form.label :gender %><br />
-     <%=form.select :gender, [['male', :male], ['female', :female]] %>
+     <%=form.select :gender, [['male', :male], ['female', :female]], class: "form-control" %>
   </div>
   <br>
-  <div class="actions">
+  <div class="actions", style="text-align:center">
     <%= form.submit class: 'btn btn-primary' %>
   </div>
 <% end %>
+</form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

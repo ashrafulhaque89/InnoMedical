@@ -1,3 +1,11 @@
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">What time would suite you the most?</h5>
+
 <%= form_with(model: schedule, local: true) do |form| %>
   <% if schedule.errors.any? %>
     <div id="error_explanation">
@@ -11,27 +19,33 @@
     </div>
   <% end %>
 
-  <div class="field">
+ <div class="form-group">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :start %>
-    <%= form.datetime_select :start, start_year: Date.today.year %>
+    <%= form.datetime_select :start, start_year: Date.today.year, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :end %>
-    <%= form.datetime_select :end , start_year: Date.today.year%>
+    <%= form.datetime_select :end , start_year: Date.today.year, class: "form-control"%>
   </div>
 
-    <div class="field">
+   <div class="form-group">
     <%= form.label :cost %>
-    <%= form.number_field :cost %>
+    <%= form.number_field :cost, class: "form-control" %>
   </div>
 <br>
-  <div class="actions">
+  <div class="actions", style="text-align:center">
     <%= form.submit class: 'btn btn-primary' %>
+    
   </div>
 <% end %>
+</div>
+      </div>
+    </div>
+  </div>
+</body>
