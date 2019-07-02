@@ -3,13 +3,12 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-         has_one :doctor
-         has_one :patient_profile
-         has_many :patient_histories, :through => :patient_profiles
-         has_many :prescriptions, :through => :patient_profiles
-         has_many :prescriptions, :through => :doctor
-         has_many :appointments, :through => :doctor
-         has_many :appointments, :through => :patient_profiles
+          has_one :doctor
+          has_one :patient_profile
+          has_many :patient_histories, :through => :patient_profiles
+          has_many :prescriptions, :through => :patient_profiles
+          has_many :prescriptions, :through => :doctor
+
 
 
          enum role: [ :doctor , :patient, :admin ]
