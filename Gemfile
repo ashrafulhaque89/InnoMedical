@@ -74,5 +74,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'cancancan'
-gem 'carrierwave', '~> 0.10.0'
+gem 'carrierwave', '~> 1.3.2'
 gem 'appointments', '~> 1.3', '>= 1.3.3'
